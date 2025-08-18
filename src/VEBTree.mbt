@@ -123,6 +123,7 @@ pub fn delete(self : VEBTree, x : Int) -> VEBResult {
 
 ///|
 /// Internal implementation for deleting from cluster structure
+
 ///|
 /// Internal implementation for deleting from cluster structure
 fn delete_from_clusters(self : VEBTree, x : Int) -> VEBResult {
@@ -652,6 +653,7 @@ pub fn next(self : VEBIterator) -> Int? {
 
 ///|
 /// Range query: get all elements in [low, high]
+
 ///|
 /// 优化的范围查询，复杂度 O(k + log log U)
 pub fn range_query(self : VEBTree, low : Int, high : Int) -> Array[Int] {
