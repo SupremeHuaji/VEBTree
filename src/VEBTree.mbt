@@ -199,58 +199,6 @@ fn force_element_removal(self : VEBTree, x : Int) -> Unit {
 }
 
 ///|
-/// Helper method to find next minimum element after current min
-fn find_next_min(self : VEBTree) -> Int? {
-  match self.clusters {
-    Some(clusters) =>
-      match self.summary {
-        Some(summary) => {
-          let cluster_sz = cluster_size(self.universe_size)
-
-          // Find the first non-empty cluster
-          match summary.min() {
-            Success(first_cluster) =>
-              match clusters[first_cluster].min {
-                Some(min_low) =>
-                  // Combine indices to get actual element value
-                  Some(index(first_cluster, min_low, cluster_sz))
-                None => None
-              }
-            _ => None
-          }
-        }
-        None => None
-      }
-    None => None
-  }
-}
-
-///|
-/// Helper method to find previous maximum element before current max
-fn find_prev_max(self : VEBTree) -> Int? {
-  match self.clusters {
-    Some(clusters) =>
-      match self.summary {
-        Some(summary) => {
-          let cluster_sz = cluster_size(self.universe_size)
-
-          // Find the last non-empty cluster
-          match summary.max() {
-            Success(last_cluster) =>
-              match clusters[last_cluster].max {
-                Some(max_low) =>
-                  // Combine indices to get actual element value
-                  Some(index(last_cluster, max_low, cluster_sz))
-                None => None
-              }
-            _ => None
-          }
-        }
-        None => None
-      }
-    None => None
-  }
-}
 
 ///|
 /// Optimized insert to work seamlessly with delete
