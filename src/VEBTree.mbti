@@ -1,0 +1,77 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "SupremeHuaji/VEBTree"
+
+// Values
+fn cluster_size(Int) -> Int
+
+fn count_trailing_zeros(Int) -> Int
+
+fn from_array(Array[Int], Int) -> VEBTree
+
+fn high(Int, Int) -> Int
+
+fn index(Int, Int, Int) -> Int
+
+fn low(Int, Int) -> Int
+
+fn new(Int) -> VEBTree
+
+fn new_pow2(Int) -> VEBTree
+
+// Errors
+
+// Types and methods
+pub(all) struct VEBIterator {
+  tree : VEBTree
+  mut current : Int?
+  ascending : Bool
+}
+fn VEBIterator::next(Self) -> Int?
+impl Show for VEBIterator
+
+pub(all) enum VEBResult {
+  Success(Int)
+  NotFound
+  Empty
+  OutOfRange
+}
+impl Eq for VEBResult
+impl Show for VEBResult
+
+pub(all) struct VEBTree {
+  universe_size : Int
+  mut min : Int?
+  mut max : Int?
+  mut summary : VEBTree?
+  mut clusters : Array[VEBTree]?
+}
+fn VEBTree::clear(Self) -> Unit
+fn VEBTree::contains(Self, Int) -> Bool
+fn VEBTree::contains_debug(Self, Int) -> Bool
+fn VEBTree::count_range(Self, Int, Int) -> Int
+fn VEBTree::delete(Self, Int) -> VEBResult
+fn VEBTree::equals(Self, Self) -> Bool
+fn VEBTree::initialize_structure(Self) -> Unit
+fn VEBTree::initialize_structure_lazy(Self) -> Unit
+fn VEBTree::insert(Self, Int) -> VEBResult
+fn VEBTree::intersection(Self, Self) -> Self
+fn VEBTree::is_empty(Self) -> Bool
+fn VEBTree::is_singleton(Self) -> Bool
+fn VEBTree::is_subset(Self, Self) -> Bool
+fn VEBTree::iter(Self) -> VEBIterator
+fn VEBTree::iter_rev(Self) -> VEBIterator
+fn VEBTree::max(Self) -> VEBResult
+fn VEBTree::min(Self) -> VEBResult
+fn VEBTree::predecessor(Self, Int) -> VEBResult
+fn VEBTree::range_query(Self, Int, Int) -> Array[Int]
+fn VEBTree::size(Self) -> Int
+fn VEBTree::successor(Self, Int) -> VEBResult
+fn VEBTree::to_array(Self) -> Array[Int]
+fn VEBTree::universe_size(Self) -> Int
+impl Eq for VEBTree
+impl Show for VEBTree
+
+// Type aliases
+
+// Traits
+
